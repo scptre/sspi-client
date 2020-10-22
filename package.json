@@ -1,18 +1,20 @@
 {
-  "name": "sspi-client",
-  "version": "0.1.1",
-  "description": "SSPI Client Library.",
-  "author": "Prasad Tammana <prasadgithub@gmail.com>",
+  "name": "@sregger/sspi-client",
+  "version": "0.1.2",
+  "description": "Fork of the sspi-client module to support NodeJS version 12+.",
+  "author": "Shane Gannon <sgannon200@gmail.com>",
   "license": "MIT",
   "keywords": [
     "sspi",
-    "tedious"
+    "tedious",
+    "fork",
+    "NodeJS14"
   ],
-  "homepage": "https://github.com/tvrprasad/sspi-client",
-  "bugs": "https://github.com/tvrprasad/sspi-client/issues",
+  "homepage": "https://github.com/sregger/sspi-client",
+  "bugs": "https://github.com/sregger/sspi-client/issues",
   "repository": {
     "type": "git",
-    "url": "https://github.com/tvrprasad/sspi-client.git"
+    "url": "https://github.com/sregger/sspi-client.git"
   },
   "main": "src_js/index.js",
   "dependencies": {
@@ -24,7 +26,7 @@
     "nodeunit": "^0.10.2"
   },
   "scripts": {
-    "test": "nodeunit --reporter minimal test/unit/"
+    "test": "nodeunit test/unit/"
   },
   "gypfile": true
 }

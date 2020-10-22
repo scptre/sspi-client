@@ -1,5 +1,19 @@
 # Client Side SSPI Authentication Module.
 
+## Fork Overview
+
+The [sspi-client module](https://github.com/tvrprasad/sspi-client) does not support NodeJS versions greater than 11. i.e. Due to build errors such as
+
+> error C2660: 'v8::Value::BooleanValue': function does not take 0 arguments
+
+These APIs had been marked as depreciated and were removed in NodeJS 12. This fork allows the [sspi-client module](https://github.com/tvrprasad/sspi-client) to support the newer (and older) versions of NodeJS. It has been verified against NodeJS versions
+
+* 14.2.0
+* 12.16.3
+* 10.19.0
+
+A [pull request](https://github.com/tvrprasad/sspi-client/pull/44) against the original module was created to support the latest releases. But no response was received and it appears that module is no longer maintained.
+
 ## Overview
 SSPI is a Microsoft specific API that may be used by applications for
 authenticated communications. This allows an application to use various
