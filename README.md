@@ -8,6 +8,7 @@ The [sspi-client module](https://github.com/tvrprasad/sspi-client) does not supp
 
 These APIs had been marked as depreciated and were removed in NodeJS 12. This fork allows the [sspi-client module](https://github.com/tvrprasad/sspi-client) to support the newer (and older) versions of NodeJS. It has been verified against NodeJS versions
 
+* 18.16.0
 * 14.2.0
 * 12.16.3
 * 10.19.0
