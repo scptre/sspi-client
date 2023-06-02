@@ -1,6 +1,6 @@
 {
   "name": "@sregger/sspi-client",
-  "version": "0.1.4",
+  "version": "0.1.5",
   "description": "Fork of the sspi-client module to support NodeJS version 12+.",
   "author": "Shane Gannon <sgannon200@gmail.com>",
   "license": "MIT",
