@@ -347,6 +347,6 @@ NAN_MODULE_INIT(Init) {
     SspiClientObject::Init(target);
 }
 
-NODE_MODULE(SspiClientNative, Init)
+NAN_MODULE_WORKER_ENABLED(SspiClientNative, Init)
 
 #endif  // IS_SUPPORTED_NODE_VERSION
