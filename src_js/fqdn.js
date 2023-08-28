@@ -6,7 +6,7 @@ const os = require('os');
 
 const localhostIdentifier = 'localhost';
 
-// Do a reverse lookup on the IP address and return the first FQDN.
+// Do a lookup service request on the IP address and return the first FQDN.
 function getFqdnForIpAddress(ipAddress, cb) {
   try {
     dns.lookupService(ipAddress, 0, function (err, hostname, service) {
