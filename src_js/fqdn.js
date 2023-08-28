@@ -8,15 +8,17 @@ const localhostIdentifier = 'localhost';
 
 // Do a reverse lookup on the IP address and return the first FQDN.
 function getFqdnForIpAddress(ipAddress, cb) {
-  dns.reverse(ipAddress, function(err, fqdns) {
-    if (err) {
-      cb(err, fqdns);
-    } else if (fqdns[0].toLowerCase() === localhostIdentifier) {
-      getFqdn(localhostIdentifier, cb);
-    } else {
-      cb(err, fqdns[0]);
-    }
-  });
+  try {
+    dns.lookupService(ipAddress, 0, function (err, hostname, service) {
+        if (err) {
+            console.log(err);
+            return;
+        }
+        cb(err, hostname);
+    });
+  } catch (error) {
+    cb(error, ipAddress);
+  }
 }
 
 // Get the IP addresses for host. For each of the IP addresses, do a reverse
