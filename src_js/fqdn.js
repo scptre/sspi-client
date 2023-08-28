@@ -9,12 +9,24 @@ const localhostIdentifier = 'localhost';
 // Do a lookup service request on the IP address and return the first FQDN.
 function getFqdnForIpAddress(ipAddress, cb) {
   try {
-    dns.lookupService(ipAddress, 0, function (err, hostname, service) {
-        if (err) {
-            console.log(err);
-            return;
+    dns.reverse(ipAddress, function(err, fqdns) {
+      if (err) {
+        if (err.code == "ENOTFOUND") {
+          dns.lookupService(ipAddress, 0, function (err, hostname, service) {
+              if (err) {
+                  console.log(err);
+                  return;
+              }
+              cb(err, hostname);
+          });
+        } else {
+          cb(err, fqdns);
         }
-        cb(err, hostname);
+      } else if (fqdns[0].toLowerCase() === localhostIdentifier) {
+        getFqdn(localhostIdentifier, cb);
+      } else {
+        cb(err, fqdns[0]);
+      }
     });
   } catch (error) {
     cb(error, ipAddress);
