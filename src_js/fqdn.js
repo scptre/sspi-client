@@ -12,12 +12,12 @@ function getFqdnForIpAddress(ipAddress, cb) {
     dns.reverse(ipAddress, function(err, fqdns) {
       if (err) {
         if (err.code == "ENOTFOUND") {
-          dns.lookupService(ipAddress, 0, function (err, hostname, service) {
-              if (err) {
-                  console.log(err);
+          dns.lookupService(ipAddress, 0, function (lookupErr, hostname, service) {
+              if (lookupErr) {
+                  console.log(lookupErr);
                   return;
               }
-              cb(err, hostname);
+              cb(lookupErr, hostname);
           });
         } else {
           cb(err, fqdns);
